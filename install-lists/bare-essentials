@@ -1,0 +1,11 @@
+xorg-server
+xorg-server-common
+xorg-setxkbmap
+xorg-xinit
+xorg-xset
+xorg-xmodmap
+networkmanager
+i3-wm
+man-db
+man-pages
+pipewire-pulse
