@@ -1,4 +1,10 @@
 #!/bin/bash
+#
+#   ----------  ----------
+#   |       <---- TARGET |
+#   |        |  |        |
+#   |CURRENT ---->       |
+#   ----------  ----------
 
 CURRENT_WS=$(i3-msg -t get_workspaces | jq -r '.[] | select(.focused==true).name')
 CURRENT_WS_OUTPUT=$(i3-msg -t get_tree | jq -r ".. | (.nodes? // empty)[] | select(.focused == true) | .output")
