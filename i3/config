@@ -48,7 +48,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec --no-startup-id xsetroot -solid black
 
-workspace 2 
+exec --no-startup-id i3-msg "workspace 2"
 exec --no-startup-id alacritty -e "~/.config/i3/layouts/startup.sh"
 
 # floating window excepitons
