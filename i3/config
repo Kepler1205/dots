@@ -42,12 +42,14 @@ focus_on_window_activation urgent
 # startup programs
 #exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id eos-update-notifier -init
+exec --no-startup-id dunst
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec --no-startup-id xsetroot -solid black
-#exec --no-startup-id $i3-script-path/set-monitors.sh
-exec --no-startup-id i3-msg workspace 2; alacritty
+
+workspace 2 
+exec --no-startup-id alacritty -e "~/.config/i3/layouts/startup.sh"
 
 # floating window excepitons
 for_window [instance="origin.exe"] floating enable

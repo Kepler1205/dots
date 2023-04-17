@@ -1,5 +1,3 @@
-#!/usr/bin/env fish
-
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
@@ -73,6 +71,7 @@ abbr sudo 'doas'
 abbr ns 'alacritty --working-directory $(pwd) & disown'
 abbr --set-cursor find 'find . -iname \'*%*\''
 abbr --position anywhere !! --function last_history_item
+abbr --set-cursor timer 'sleep %m && notify-send --urgency=critical --wait "Timer Completed..."' 
 
 # Program modifiers
 abbr --set-cursor --position anywhere sed 'sed \'s/%/g\''
