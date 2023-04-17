@@ -1,5 +1,5 @@
 #!/bin/bash
-
-theme=echo $CUST_THEMES | rofi -dmenu
-
-~/.config/i3/scripts/change-theme.sh $theme
+cd ~/.config/i3/scripts/rofi
+echo $(pwd)
+choice=$(cat ../../themes/theme-list | rofi -dmenu)
+../change-theme.sh $choice
