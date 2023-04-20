@@ -50,6 +50,13 @@ echo "Loaded polybar $1."
 # Used in fish config abbreviations
 export CUST_THEME=$1
 
+# Individual theme exceptions
+
+if [ $1 == "simple" ]; then
+  killall picom
+  killall xborders
+fi
+
 if [ $1 == "grayscale" ]; then
   killall picom
   killall xborders

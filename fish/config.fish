@@ -73,6 +73,11 @@ abbr --set-cursor find 'find . -iname \'*%*\''
 abbr --position anywhere !! --function last_history_item
 abbr --set-cursor timer 'sleep %m && notify-send --urgency=critical --wait "Timer Completed..."' 
 
+# Git abbrieviations
+abbr gs 'git status'
+abbr ga 'git add'
+abbr gp 'git push'
+
 # Program modifiers
 abbr --set-cursor --position anywhere sed 'sed \'s/%/g\''
 abbr --set-cursor --position anywhere grep 'grep -i \'%\''
@@ -81,7 +86,6 @@ abbr --set-cursor --position anywhere grep 'grep -i \'%\''
 abbr --add dotdot --regex '^\.\.+$' --function multicd
 
 # File Location Abbrieviations
-abbr --position anywhere cfg  '~/.config'
 abbr --position anywhere cfi3 '~/.config/i3'
 abbr --position anywhere cffi '~/.config/fish'
 abbr --position anywhere cfpo '~/.config/polybar'

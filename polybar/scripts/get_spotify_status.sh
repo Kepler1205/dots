@@ -10,11 +10,7 @@ PARENT_BAR_PID=$(pgrep -a "polybar" | grep "$PARENT_BAR" | cut -d" " -f1)
 # Use `playerctld` to always detect the latest player.
 # See more here: https://github.com/altdesktop/playerctl/#selecting-players-to-control
 
-if [ -n "$(playerctl -l | grep "ncspot")" ]; then
-  PLAYER="ncspot"
-else
-  PLAYER="spotify"
-fi
+PLAYER="spotify,ncspot"
 
 # Format of the information displayed
 # Eg. {{ artist }} - {{ album }} - {{ title }}

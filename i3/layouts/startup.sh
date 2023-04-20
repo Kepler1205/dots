@@ -18,7 +18,7 @@ if [ $input == "y" ] || [ $input == "\n" ]; then
   pgrep steam || steam &
 
   i3-msg "workspace 9; append_layout $XDG_CONFIG_HOME/i3/layouts/ws9.json"
-  pgrep spotify || spotify-launcher &
+  pgrep spotify-launcher || spotify-launcher &
 else
   clear
   exit
