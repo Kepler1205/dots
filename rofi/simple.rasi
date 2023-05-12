@@ -1,5 +1,5 @@
 * {
-    font: "Terminess TTF Nerd Font 16";
+    font: "Terminess Nerd Font 16";
     foreground: #f8f8f2;
     background-color: #000000;
     active-background: #808080;
