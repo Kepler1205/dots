@@ -48,7 +48,7 @@ echo "Loaded polybar $1."
 # dunst
 
 # Used in fish config abbreviations
-export CUST_THEME=$1
+export THEME=$1
 
 # Individual theme exceptions
 
