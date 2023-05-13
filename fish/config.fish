@@ -86,6 +86,7 @@ abbr gs 'git status'
 abbr ga 'git add'
 abbr --set-cursor gc 'git commit -m "%"'
 abbr gp 'git push'
+abbr gd 'git diff'
 
 # Program modifiers
 abbr --set-cursor --position anywhere sed "sed 's/%/g'"
@@ -105,10 +106,10 @@ abbr --position anywhere cfco '~/.config/conky'
 abbr --position anywhere cfal '~/.config/alacritty'
 
 # Vim Abbrieviations
-abbr vi3 'nvim -p ~/.config/i3/config ~/.config/i3/themes/$THEME.conf ~/.config/i3/keybinds.conf' 
-abbr vnv 'nvim -p ~/.config/nvim/**.lua'
-abbr vpo 'nvim -p ~/.config/polybar/themes/$THEME/*.ini'
-abbr vpi 'nvim -p ~/.config/picom/picom.conf'
+abbr vi3 'nvim -O ~/.config/i3/config ~/.config/i3/themes/$THEME.conf ~/.config/i3/keybinds.conf' 
+abbr vnv 'nvim -O ~/.config/nvim/**.lua'
+abbr vpo 'nvim -O ~/.config/polybar/themes/$THEME/*.ini'
+abbr vpi 'nvim -O ~/.config/picom/picom.conf'
 abbr vfi 'nvim ~/.config/fish/config.fish'
 abbr vdu 'nvim ~/.config/dunst/dunstrc'
 abbr vro 'nvim ~/.config/rofi/$THEME.rasi'
