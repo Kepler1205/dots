@@ -210,7 +210,7 @@ font:
     #style: Bold Italic
 
   # Point size (11.0 by defualt)
-  size: 13
+  size: 14
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -488,7 +488,7 @@ cursor:
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
 shell:
-  program: /bin/fish
+  program: /usr/bin/fish
 #  args:
 #    - --login
 
