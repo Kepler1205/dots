@@ -104,10 +104,12 @@ abbr --position anywhere cfdu '~/.config/dunst'
 abbr --position anywhere cfro '~/.config/rofi'
 abbr --position anywhere cfco '~/.config/conky'
 abbr --position anywhere cfal '~/.config/alacritty'
+abbr --position anywhere romdir '/mnt/hdd/ROMs/'
+abbr --position anywhere hdd '/mnt/hdd/'
 
 # Vim Abbrieviations
 abbr vi3 'nvim -O ~/.config/i3/config ~/.config/i3/themes/$THEME.conf ~/.config/i3/keybinds.conf' 
-abbr vnv 'nvim -O ~/.config/nvim/**.lua'
+abbr vnv 'cd ~/.config/nvim; nvim lua/custom/chadrc.lua'
 abbr vpo 'nvim -O ~/.config/polybar/themes/$THEME/*.ini'
 abbr vpi 'nvim -O ~/.config/picom/picom.conf'
 abbr vfi 'nvim ~/.config/fish/config.fish'
@@ -117,4 +119,9 @@ abbr vco 'nvim ~/.config/conky/conky.conf'
 abbr val 'nvim ~/.config/alacritty/$THEME.yml'
 
 # Startup ascii
-blocks
+if test "$TERM" = "alacritty"
+    fish_vi_key_bindings
+    colorscript random
+else
+    fish_default_key_bindings
+end
