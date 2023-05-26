@@ -3,10 +3,10 @@
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources &
 
 # set numlock on by defualt
-numlockx on &
+numlockx on
 
 # bind capslock to escape
-setxkbmap -option caps:escape &
+setxkbmap -option caps:escape
 
 # apply monitor layout
 ~/.set-monitors &
