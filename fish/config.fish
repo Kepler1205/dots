@@ -2,7 +2,8 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-set fish_greeting ""
+# disable fish greeting
+set fish_greeting
 
 # Vi mode changes
 set fish_cursor_default block
@@ -13,53 +14,69 @@ set fish_cursor_visual block
 # Functions
 
 function fish_prompt
-  set_color green
-  printf "$USER "
-  set_color purple
-  printf "$hostname "
-  set_color white
-  printf "$(date "+%T")\n"
-
-  set_color blue
-  if test "$(pwd | wc --chars)" -gt 50
-    printf "$(prompt_pwd)"
-  else 
-    printf "$(pwd | sed "s/^\/home\/$USER/~/")"
-  end
-
-  if test "$USER" = "root"
-    set_color red
-    printf " # "
-  else
+    set_color green
+    printf "$USER "
     set_color purple
-    printf " > "
-  end
-
-  set_color normal
+    printf "$hostname "
+    set_color white
+    printf "$(date "+%T")\n"
+    
+    set_color blue
+    if test "$(pwd | wc --chars)" -gt 50
+      printf "$(prompt_pwd)"
+    else 
+      printf "$(pwd | sed "s/^\/home\/$USER/~/")"
+    end
+    
+    if test "$USER" = "root"
+      set_color red
+      printf " # "
+    else
+      set_color purple
+      printf " > "
+    end
+    
+    set_color normal
 end
 
 function multicd
-  echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)
+    echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)
+    echo ls
 end
 
 function last_history_item
-  echo $history[1]
+    echo $history[1]
 end
 
 function new_term
     if test $argv
-        $TERMINAL --working-directory (pwd) -e $argv &; disown
+        $TERMINAL --working-directory (pwd) -e "$argv" &; disown
     else 
         $TERMINAL --working-directory (pwd) &; disown
+    end
+end
+
+# lets you ls on files to read them
+function ls 
+    if test \( -f "$argv[1]" -a ! -z "$argv[1]" \)
+        bat $argv
+    else
+        exa --icons -s type $argv
+    end
+end
+
+function c 
+    if test $TERM = "linux"
+        clear
+    else
+        xdotool key Control+l
     end
 end
 
 #### Abbrieviations and aliases ####
 
 # Aliases
-alias c    'clear'
 alias l    'exa --icons -s type -l --no-time --no-filesize'
-alias ls   'exa --icons -s type'
 alias la   'exa --icons -s type -a'
 alias ll   'exa --icons -s type -la --no-time --no-filesize'
 alias lll  'exa --icons -s type -lahgmU --classify'
@@ -70,11 +87,12 @@ alias tree 'exa --icons --header -T'
 abbr cp 'cp -iv'
 abbr mv 'mv -iv'
 abbr df 'df -h'
-abbr --set-cursor cd 'cd % ;ls'
+abbr --set-cursor cdl 'cd % ;ls'
 abbr --position anywhere v '$EDITOR'
 abbr nf 'neofetch'
 abbr cm 'unimatrix -s 96'
 abbr q 'qalc'
+abbr cat 'bat'
 abbr top 'btop'
 abbr du 'du -sh'
 abbr y 'yay'
@@ -118,10 +136,10 @@ abbr --position anywhere romdir '/mnt/hdd/ROMs/'
 abbr --position anywhere hdd '/mnt/hdd/'
 
 # Vim Abbrieviations
-abbr vi3 '$EDITOR -O ~/.config/i3/config ~/.config/i3/themes/$THEME.conf ~/.config/i3/keybinds.conf' 
+abbr vi3 '$EDITOR ~/.config/i3/config ~/.config/i3/themes/$THEME.conf ~/.config/i3/keybinds.conf' 
 abbr vnv 'cd ~/.config/nvim; $EDITOR lua/custom/chadrc.lua'
-abbr vpo '$EDITOR -O ~/.config/polybar/themes/$THEME/*.ini'
-abbr vpi '$EDITOR -O ~/.config/picom/picom.conf'
+abbr vpo '$EDITOR ~/.config/polybar/themes/$THEME/*.ini'
+abbr vpi '$EDITOR ~/.config/picom/picom.conf'
 abbr vfi '$EDITOR ~/.config/fish/config.fish'
 abbr vdu '$EDITOR ~/.config/dunst/dunstrc'
 abbr vro '$EDITOR ~/.config/rofi/$THEME.rasi'
@@ -131,7 +149,7 @@ abbr val '$EDITOR ~/.config/alacritty/$THEME.yml'
 # Startup ascii
 if test "$TERM" = "alacritty"
     fish_vi_key_bindings
-    colorscript random
+    #    colorscript random
 else
     fish_default_key_bindings
 end
