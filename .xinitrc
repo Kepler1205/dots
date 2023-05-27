@@ -1,6 +1,6 @@
 #!/bin/bash
 
-[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources &
+[[ -f "$XDG_CONFIG_HOME"/X11/xresources ]] && xrdb -merge -I$HOME "$XDG_CONFIG_HOME"/X11/xresources &
 
 # set numlock on by defualt
 numlockx on

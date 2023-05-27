@@ -83,6 +83,9 @@ alias lll  'exa --icons -s type -lahgmU --classify'
 alias llll 'exa --icons -s type -laahHiUumg@ --changed --classify'
 alias tree 'exa --icons --header -T'
 
+# xdg enforcer aliases
+alias wget 'wget --hsts-file="$XDG_DATA_HOME"/wget-hsts'
+
 # Programs
 abbr cp 'cp -iv'
 abbr mv 'mv -iv'
