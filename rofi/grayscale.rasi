@@ -1,5 +1,5 @@
 * {
-    font: "Terminess Nerd Font 16";
+    font: "Terminess Nerd Font 14";
     foreground: #f8f8f2;
     background-color: #0a0a0a;
     active-background: #666666;
@@ -13,14 +13,15 @@
 
 #window {
     background-color: @background-color;
-    border:           2;
+    border: 3;
     border-radius: 0;
     border-color: @bordercolor;
-    padding:         10;
+    padding: 10;
+    width: 30%;
 }
 #mainbox {
     border:  0;
-    padding: 5;
+    padding: 0;
 }
 #message {
     border:       1px dash 0px 0px ;
@@ -32,15 +33,15 @@
 }
 #listview {
     fixed-height: 0;
-    border:       20px dash 0px 0px ;
+    border:       2px 0px 0px ;
     border-color: @bordercolor;
     spacing:      0px ;
-    scrollbar:    true ; 
-    padding:      2px 0px 0px ;
+    scrollbar:    false ; 
+    padding:      0px 0px 0px ;
 }
 #element {
     border:  0;
-    padding: 4px ;
+    padding: 6px;
 }
 #element.normal.normal {
     background-color: @background-color;
@@ -110,7 +111,7 @@
     text-color: @foreground;
 }
 #inputbar {
-    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+    children:   [ entry ];
 }
 #textbox-prompt-colon {
     expand:     false;
@@ -138,7 +139,7 @@ configuration {
 	run-shell-command: "{terminal} -e {cmd}";
 	window-command: "wmctrl -i -R {window}";
 	window-match-fields: "all";
-	icon-theme: "Dracula";
+	icon-theme: "Qogir";
 	drun-match-fields: "name,generic,exec,categories,keywords";
 //	drun-categories: ;
 	drun-show-actions: false;
@@ -147,19 +148,19 @@ configuration {
 	disable-history: false;
 //	ignored-prefixes: "";
 	sort: true;
-	sorting-method: "normal";
+	sorting-method: "fzf";
 	case-sensitive: false;
 	cycle: true;
-	sidebar-mode: true;
+	sidebar-mode: false;
 	hover-select: false;
-	eh: 1;
+	eh: 1; /* Row height in chars */
 	auto-select: false;
 	parse-hosts: false;
 	parse-known-hosts: true;
 	combi-modes: "window,run";
-	matching: "normal";
+	matching: "fuzzy";
 	tokenize: true;
-	m: "-5";
+	m: "-4"; /* Select monitor to display on */
 //	filter: ;
 	dpi: -1;
 	threads: 0;
@@ -273,4 +274,4 @@ configuration {
       sorting-method:    "name";
   }
 }
-/* vim:ft=css
+// vim:ft=css
