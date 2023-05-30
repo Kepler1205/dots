@@ -65,17 +65,10 @@ function ls
     end
 end
 
-function c 
-    if test $TERM = "linux"
-        clear
-    else
-        xdotool key Control+l
-    end
-end
-
 #### Abbrieviations and aliases ####
 
 # Aliases
+alias c    'clear'
 alias l    'exa --icons -s type -l --no-time --no-filesize'
 alias la   'exa --icons -s type -a'
 alias ll   'exa --icons -s type -la --no-time --no-filesize'
