@@ -1,9 +1,11 @@
+@theme "/dev/null"
 * {
     font: "Terminess Nerd Font 14";
     foreground: #f8f8f2;
     background-color: #0a0a0a;
     active-background: #666666;
     urgent-background: #ff5555;
+    urgent-foreground: #ff5555;
     selected-background: #242531;
     selected-urgent-background: @urgent-background;
     selected-active-background: @active-background;
