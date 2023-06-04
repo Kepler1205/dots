@@ -1,8 +1,18 @@
 #!/usr/bin/env sh
 
-OPTION1=$(printf "Box select\nTotal display\nMonitor select\nWindow select" | rofi -format i -dmenu)
+OPTION1=$(printf "Box select\nTotal display\nMonitor select\nWindow select" \
+    | rofi -format i -dmenu -theme-str \
+        '#entry {
+            placeholder: "Screenshot Type";
+        }'
+    )
 
-OPTION2=$(printf "Copy to clipboard\nSave to ~/pictures/screenshots" | rofi -format i -dmenu)
+OPTION2=$(printf "Copy to clipboard\nSave to ~/pictures/screenshots" \
+    | rofi -format i -dmenu -theme-str \
+        '#entry {
+            placeholder: "Screenshot Location";
+        }'
+    )
 
 case ${OPTION2} in 
   0) FLAGS="| xclip -selection clipboard -t image/png && notify-send -t 1500 'Selection copied to clipboard'";;

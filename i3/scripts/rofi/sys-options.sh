@@ -1,6 +1,11 @@
 #/bin/bash
 
-OPTION=$(printf "Shutown PC\nRestart PC\nLogout i3\nReload i3\nRestart i3\nLock i3" | rofi -format i -dmenu)
+OPTION=$(printf "Shutown\nRestart\nLogout\nReload i3\nRestart i3\nLock" \
+    | rofi -format i -dmenu -theme-str \
+        '#entry {
+            placeholder: "System Options";
+        }'
+    )
 
 case ${OPTION} in
   0) poweroff;;

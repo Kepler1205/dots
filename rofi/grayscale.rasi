@@ -1,4 +1,3 @@
-@theme "/dev/null"
 * {
     font: "Terminess Nerd Font 14";
     foreground: #f8f8f2;
@@ -107,6 +106,7 @@
 #entry {
     spacing:    0;
     text-color: @foreground;
+    placeholder: "Type to filter";
 }
 #prompt {
     spacing:    0;
@@ -167,7 +167,7 @@ configuration {
 	dpi: -1;
 	threads: 0;
 	scroll-method: 0;
-	window-format: "{w}    {c}   {t}";
+	window-format: "{w} {t}";
 	click-to-exit: true;
 	max-history-size: 25;
 	combi-hide-mode-prefix: false;

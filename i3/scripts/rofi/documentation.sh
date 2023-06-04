@@ -20,9 +20,14 @@ err() {
     exit 1
 }
 
-sel=$(ls $doc_path | rofi -dmenu)
+sel=$(ls $doc_path \
+    | rofi -dmenu -theme-str \
+        '#entry { 
+            placeholder: "Documentation"; 
+        }'
+    )
 
-[ -z "$sel" ] && err "No selection"
+[ -z "$sel" ] && exit 1
 [ -e "$doc_path/$sel/index.html" ] || err "$doc_path/$sel/index.html does not exist"
 
 [ $BROWSER = "firefox" ] && firefox --new-window $doc_path/$sel/index.html; exit 0

@@ -3,15 +3,16 @@
 # Handle marks with rofi
 #
 
-show_marks() {
+make_mark() {
+    sel=$(
     i3-msg -r -t get_marks \
         | jq -r '.[]' \
         | sed 's|\"||g; s| |\n|g' \
-        | rofi -dmenu
-}
-
-make_mark() {
-    sel=$(show_marks)   
+        | rofi -dmenu -theme-str \
+            '#entry {
+                placeholder: "Make Mark";
+            }'
+    )   
 
     [ -z $sel ] && exit -1
 
@@ -27,7 +28,15 @@ make_mark() {
 }
 
 goto_mark() {
-    sel=$(show_marks)   
+    sel=$(
+    i3-msg -r -t get_marks \
+        | jq -r '.[]' \
+        | sed 's|\"||g; s| |\n|g' \
+        | rofi -dmenu -theme-str \
+            '#entry {
+                placeholder: "Goto Mark";
+            }'
+    )   
     [ -z $sel ] && exit -1
     i3-msg [con_mark="$sel"] focus
 }
