@@ -1,0 +1,13 @@
+# puleaudio bindings
+XF86Audio{Raise,Lower}Volume
+	pactl set-sink-volume @DEFAULT_SINK@ {+,-}5%
+
+# spotify audio control
+shift + XF86Audio{Raise,Lower}Volume
+	playerctl -p spotify,ncspot volume 0.05{+,-} 
+XF86Audio{Play,Stop,Next,Prev}
+    playerctl -p spotify,ncspot {play-pause,stop,next,previous}
+
+# browser audio control
+alt + XF86Audio{Play,Stop,Next,Prev}
+    playerctl -i spotify,ncspot {play-pause,stop,next,previous}

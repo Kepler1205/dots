@@ -3,13 +3,17 @@
 [[ -f "$XDG_CONFIG_HOME"/X11/xresources ]] && xrdb -merge -I$HOME "$XDG_CONFIG_HOME"/X11/xresources &
 
 # set numlock on by defualt
-numlockx on
+numlockx on &
 
 # bind capslock to escape
-setxkbmap -option caps:escape
+setxkbmap -option caps:escape &
+
+# use sxhkd for key bindings
+# config in ~/.config/sxhkd/sxhkdrc
+sxhkd &
 
 # apply monitor layout
-~/.set-monitors &
+$HOME/.set-monitors &
 
 export XDG_SESSION_TYPE="x11"
 
