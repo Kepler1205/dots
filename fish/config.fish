@@ -80,28 +80,27 @@ alias tree 'exa --icons --header -T'
 alias wget 'wget --hsts-file="$XDG_DATA_HOME"/wget-hsts'
 
 # Programs
+abbr v 'nvim'
+abbr q 'qalc'
+abbr y 'yay'
+abbr t 'tldr'
+abbr d 'doas'
 abbr cp 'cp -iv'
 abbr mv 'mv -iv'
 abbr df 'df -h'
-abbr --set-cursor cdl 'cd % ;ls'
-abbr --position anywhere v '$EDITOR'
 abbr nf 'neofetch'
 abbr cm 'unimatrix -s 96'
-abbr q 'qalc'
+abbr du 'du -sh'
+abbr ln 'ln -s'
+abbr nt 'new_term'
 abbr cat 'bat'
 abbr top 'btop'
-abbr du 'du -sh'
-abbr y 'yay'
 abbr pwd 'pwd --physical'
-abbr ln 'ln -s'
-abbr t 'tldr'
-abbr d 'doas'
-abbr sudo 'doas'
-abbr nt 'new_term'
 abbr ntv 'new_term $EDITOR'
 abbr feh 'feh --no-fehbg'
+abbr sudo 'doas'
 abbr --set-cursor e 'echo -e "%"'
-abbr --set-cursor find "find . -iname '*%*'"
+abbr --set-cursor find "fd --hidden '%'"
 abbr --position anywhere !! --function last_history_item
 abbr --set-cursor timer 'sleep %m && notify-send --urgency=critical --wait "Timer Completed..."' 
 
@@ -145,7 +144,7 @@ abbr val '$EDITOR ~/.config/alacritty/$THEME.yml'
 # Startup ascii
 if test "$TERM" = "alacritty"
     fish_vi_key_bindings
-    #    colorscript random
+    # colorscript random
 else
     fish_default_key_bindings
 end
