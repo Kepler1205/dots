@@ -5,7 +5,7 @@ sel=$(vboxmanage list vms \
     | sed 's|\"||g' \
     | rofi -dmenu -theme-str \
         '#entry {
-            placeholder: "Start Virutal Machine";
+            placeholder: "Start Virtual Machine";
         }'
     )
 
