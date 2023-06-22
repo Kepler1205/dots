@@ -9,8 +9,8 @@ numlockx on &
 setxkbmap -option caps:escape &
 
 # use sxhkd for key bindings
-# config in ~/.config/sxhkd/sxhkdrc
-sxhkd &
+# configs in ~/.config/sxhkd/bindings/
+$XDG_CONFIG_HOME/sxhkd/refresh.sh &
 
 # apply monitor layout
 $HOME/.set-monitors &

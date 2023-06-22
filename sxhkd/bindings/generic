@@ -1,3 +1,13 @@
+# sxhkd generic bindings
+# _  __          _
+#| |/ /___ _ __ | | ___ _ __
+#| ' // _ \ '_ \| |/ _ \ '__|
+#| . \  __/ |_) | |  __/ |
+#|_|\_\___| .__/|_|\___|_|
+#         |_|
+#
+# sxhkdrc/bindings/generic
+#
 ### AUDIO BINDINGS ###
 # puleaudio bindings
 XF86Audio{Raise,Lower}Volume
@@ -12,7 +22,7 @@ shift + XF86Audio{Raise,Lower}Volume
 
 ### TERMINAL BINDINGS ###
 super + {_,alt + }Return
-    alacritty {_,-e su}
+    $TERMINAL {_,-e su}
 
 ### POLYBAR BINDINGS ###
 super + {_, shift + }h 
@@ -26,13 +36,13 @@ super + {_,alt + , shift + }numbersign
 super + F1 
 	thunar
 super + F5 
-	alacritty -e btop
+	$TERMINAL -e btop
 super + F6 
-	alacritty -e nvim -c Nvdash
+	$TERMINAL -e nvim -c Nvdash
 super + F7 
-	alacritty -e ranger
+	$TERMINAL -e ranger
 super + F8 
-	alacritty -e qalc
+	$TERMINAL -e qalc
 super + F11
 	spotify-launcher
 super + F12
@@ -82,31 +92,10 @@ super + {_,shift + } minus
 super + {_,shift + } KP_Subtract
 	$HOME/scripts/rofi/workspace.sh --move{_,-container}
 
-### SCRIPTS ###
-# swap workspaces
-super + shift + alt + {1,2,3,4,5,6,7,8,9,0}
-    $HOME/scripts/i3/swap-workspaces.sh {1,2,3,4,5,6,7,8,9,10}
-
-# swap workspaces with numpad
-super + shift + alt + KP_{End,Down,Next,Left,Begin,Right,Home,Up,Prior,Insert}
-    $HOME/scripts/i3/swap-workspaces.sh {1,2,3,4,5,6,7,8,9,10}
-
-# go/move to container to next free workspace on monitor
-super {_,shift + }+ KP_Multiply
-    $HOME/scripts/i3/next-free-workspace.sh {goto,move}
-
-# rotate workspaces between monitors
-super + shift + alt + {Right,Left}
-    $HOME/scripts/i3/rotate-workspaces{_,-reverse}.sh
-
 ### OTHER BINDINGS ###
 # force kill a window
 super + shift + q
     xdotool getactivewindow windowkill
-
-# lock screen
-super + l 
-    i3lock -ef -c 000000
 
 # save a screenshot
 super + Print

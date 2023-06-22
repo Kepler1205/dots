@@ -1,0 +1,31 @@
+# sxhkd i3 bindings
+# _  __          _
+#| |/ /___ _ __ | | ___ _ __
+#| ' // _ \ '_ \| |/ _ \ '__|
+#| . \  __/ |_) | |  __/ |
+#|_|\_\___| .__/|_|\___|_|
+#         |_|
+#
+# sxhkdrc/bindings/i3
+#
+### SCRIPTS ###
+# swap workspaces
+super + shift + alt + {1-9,0}
+    $HOME/scripts/i3/swap-workspaces.sh {1-9,10}
+
+# swap workspaces with numpad
+super + shift + alt + KP_{End,Down,Next,Left,Begin,Right,Home,Up,Prior,Insert}
+    $HOME/scripts/i3/swap-workspaces.sh {1-10}
+
+# go/move to container to next free workspace on monitor
+super {_,shift + }+ KP_Multiply
+    $HOME/scripts/i3/next-free-workspace.sh {goto,move}
+
+# rotate workspaces between monitors
+super + shift + alt + {Right,Left}
+    $HOME/scripts/i3/rotate-workspaces{_,-reverse}.sh
+
+### OTHER BINDINGS ###
+# lock screen
+super + l 
+    i3lock -ef -c 000000
