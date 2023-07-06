@@ -56,6 +56,44 @@ function new_term
     end
 end
 
+function ex
+    if test -f $argv
+        switch $argv
+            case *.tar.bz2
+				tar xjf $argv   
+            case *.tar.gz
+				tar xzf $argv   
+            case *.bz2
+				bunzip2 $argv   
+            case *.rar
+				unrar x $argv   
+            case *.gz
+				gunzip $argv    
+            case *.tar
+				tar xf $argv    
+            case *.tbz2
+				tar xjf $argv   
+            case *.tgz
+				tar xzf $argv   
+            case *.zip
+				unzip $argv     
+            case *.Z
+				uncompress $argv
+            case *.7z
+				7z x $argv      
+            case *.deb
+				ar x $argv      
+            case *.tar.xz
+				tar xf $argv    
+            case *.tar.zst
+				unzstd $argv    
+            case '*'
+				echo $argv cannot be extracted via ex()
+        end
+        echo $argv is not a valid file 
+    end
+end
+
 # lets you ls on files to read them
 function ls 
     if test \( -f "$argv[1]" -a ! -z "$argv[1]" \)
@@ -84,7 +122,7 @@ abbr v 'nvim'
 abbr q 'qalc'
 abbr y 'yay'
 abbr t 'tldr'
-abbr d 'doas'
+abbr d 'doas --'
 abbr cp 'cp -iv'
 abbr mv 'mv -iv'
 abbr df 'df -h'
@@ -97,8 +135,9 @@ abbr cat 'bat'
 abbr top 'btop'
 abbr pwd 'pwd --physical'
 abbr ntv 'new_term $EDITOR'
-abbr feh 'feh --no-fehbg'
-abbr sudo 'doas'
+abbr feh 'feh -.'
+abbr sudo 'doas --'
+abbr doas 'doas --'
 abbr --set-cursor e 'echo -e "%"'
 abbr --set-cursor find "fd --hidden '%'"
 abbr --position anywhere !! --function last_history_item
@@ -107,7 +146,7 @@ abbr --set-cursor timer 'sleep %m && notify-send --urgency=critical --wait "Time
 # Git abbrieviations
 abbr gs 'git status'
 abbr ga 'git add'
-abbr gp 'git push'
+abbr gp 'git push origin main'
 abbr gd 'git diff'
 abbr --set-cursor gc 'git commit -m "%"'
 
@@ -132,7 +171,8 @@ abbr --position anywhere hdd '/mnt/hdd/'
 
 # Vim Abbrieviations
 abbr vi3 '$EDITOR ~/.config/i3/config ~/.config/i3/themes/$THEME.conf ~/.config/i3/keybinds.conf' 
-abbr vnv 'cd ~/.config/nvim; $EDITOR lua/custom/chadrc.lua'
+abbr vsx '$EDITOR ~/.config/sxhkd/bindings/*'
+abbr vnv 'pushd ~/.config/nvim; $EDITOR lua/custom/chadrc.lua; popd'
 abbr vpo '$EDITOR ~/.config/polybar/themes/$THEME/*.ini'
 abbr vpi '$EDITOR ~/.config/picom/picom.conf'
 abbr vfi '$EDITOR ~/.config/fish/config.fish'
