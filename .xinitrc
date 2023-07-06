@@ -1,6 +1,6 @@
 #!/bin/bash
 
-[[ -f "$XDG_CONFIG_HOME"/X11/xresources ]] && xrdb -merge -I$HOME "$XDG_CONFIG_HOME"/X11/xresources &
+# [[ -f "$XDG_CONFIG_HOME"/X11/xresources ]] && xrdb -merge -I$HOME "$XDG_CONFIG_HOME"/X11/xresources &
 
 # set numlock on by defualt
 numlockx on &
@@ -10,10 +10,14 @@ setxkbmap -option caps:escape &
 
 # use sxhkd for key bindings
 # configs in ~/.config/sxhkd/bindings/
-$XDG_CONFIG_HOME/sxhkd/refresh.sh &
+# $XDG_CONFIG_HOME/sxhkd/refresh.sh &
 
 # apply monitor layout
 $HOME/.set-monitors &
+
+# turn off screensaver
+xset -dpms
+xset s off
 
 export XDG_SESSION_TYPE="x11"
 
