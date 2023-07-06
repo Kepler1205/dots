@@ -15,4 +15,5 @@ cd $sxhkd_path
 
 killall sxhkd
 cat bindings/* > .sxhkdrc
+cd
 setsid sxhkd -c $sxhkd_path/.sxhkdrc > /dev/null 2>&1 &

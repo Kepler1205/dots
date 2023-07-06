@@ -78,6 +78,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec --no-startup-id playerctld daemon
 
+# hotkey daemon
+exec --no-startup-id ~/.config/sxhkd/refresh.sh
+
 # undo workspace script
 exec --no-startup-id $i3-script-path/ws-undo.py
 

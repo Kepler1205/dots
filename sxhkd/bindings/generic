@@ -20,10 +20,6 @@ shift + XF86Audio{Raise,Lower}Volume
 {_, alt + }XF86Audio{Play,Stop,Next,Prev}
     playerctl {-p,-i} spotify,ncspot {play-pause,stop,next,previous}
 
-### TERMINAL BINDINGS ###
-super + {_,alt + }Return
-    $TERMINAL {_,-e su}
-
 ### POLYBAR BINDINGS ###
 super + {_, shift + }h 
     polybar-msg cmd {toggle,restart}
