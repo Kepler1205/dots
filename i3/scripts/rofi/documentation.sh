@@ -12,7 +12,7 @@
 #### to one in the root of the website dir      ####
 #### e.g: "~/documentation/i3wm.org/index.html" ####
 
-doc_path=$HOME/documentation
+doc_path=$HOME/dox/documentation
 [ -d $doc_path ] || exit
 
 err() {
