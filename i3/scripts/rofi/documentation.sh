@@ -31,3 +31,4 @@ sel=$(ls $doc_path \
 [ -e "$doc_path/$sel/index.html" ] || err "$doc_path/$sel/index.html does not exist"
 
 [ $BROWSER = "firefox" ] && firefox --new-window $doc_path/$sel/index.html; exit 0
+[ $BROWSER = "com.brave.Browser" ] && com.brave.Browser $doc_path/$sel/index.html; exit 0
