@@ -77,4 +77,9 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
+vim.api.nvim_create_autocmd({"BufWritePost"}, {
+    pattern = {"*.tex"},
+    command = "!pdflatex *.tex",
+})
+
 return M

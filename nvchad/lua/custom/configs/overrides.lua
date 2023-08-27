@@ -10,6 +10,8 @@ M.treesitter = {
     "typescript",
     "tsx",
     "c",
+    "cpp",
+    "rust",
     "markdown",
     "markdown_inline",
   },
@@ -19,6 +21,12 @@ M.treesitter = {
     --   "python"
     -- },
   },
+  highlight = {
+    use_languagetree = true,
+  },
+  incremental_selection = {
+    enable = false,
+  }
 }
 
 M.mason = {
