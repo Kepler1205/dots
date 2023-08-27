@@ -93,6 +93,10 @@ super + {_,shift + } KP_Subtract
 super + shift + q
     xdotool getactivewindow windowkill
 
+# pause/unpause a window
+super + {_,alt + } p
+    kill -SIG{STOP,CONT} $(xdotool getactivewindow getwindowpid)
+
 # save a screenshot
 super + Print
     import $HOME/pictures/screenshots/$(date +%s).png
