@@ -94,20 +94,45 @@ function ex
     end
 end
 
-# lets you ls on files to read them
+# opens files in specified program
+# kind of like xdg-open
+function o
+    for file in $argv
+        set -l filetype (file -Lnb $file)
+
+        if echo $filetype | grep 'HTML document' >/dev/null
+            firefox --new-window $file
+        else if echo $filetype | grep 'PDF document' >/dev/null
+            zathura $file
+            continue
+        else if echo $filetype | grep 'ASCII text' >/dev/null
+            bat $file
+            continue
+        else if echo $filetype | grep -E 'PNG|JPEG|JPG|SVG' >/dev/null
+            feh -. $file
+            continue
+        else if echo $filetype | grep -E 'MPEG|MP4|MP3' >/dev/null
+            continue
+        else
+            echo $filetype
+        end
+    end
+end
+
+# lets you ls on files to open/read them
 function ls 
     if test \( -f "$argv[1]" -a ! -z "$argv[1]" \)
-        bat $argv
+        o $argv
     else
         exa --icons -s type $argv
     end
 end
 
+
 #### Abbrieviations and aliases ####
 
 # Aliases
 alias c    'clear'
-alias l    'exa --icons -s type -l --no-time --no-filesize'
 alias la   'exa --icons -s type -a'
 alias ll   'exa --icons -s type -la --no-time --no-filesize'
 alias lll  'exa --icons -s type -lahgmU --classify'
@@ -171,8 +196,9 @@ abbr --position anywhere hdd '/mnt/hdd/'
 
 # Vim Abbrieviations
 abbr vi3 '$EDITOR ~/.config/i3/config ~/.config/i3/themes/$THEME.conf ~/.config/i3/keybinds.conf' 
+abbr vhy '$EDITOR ~/.config/hypr/hyprland.conf' '$EDITOR ~/.config/hypr/keybinds.conf'
 abbr vsx '$EDITOR ~/.config/sxhkd/bindings/*'
-abbr vnv 'pushd ~/.config/nvim; $EDITOR lua/custom/chadrc.lua; popd'
+abbr vnv 'pushd   ~/.config/nvim; $EDITOR lua/custom/chadrc.lua; popd'
 abbr vpo '$EDITOR ~/.config/polybar/themes/$THEME/*.ini'
 abbr vpi '$EDITOR ~/.config/picom/picom.conf'
 abbr vfi '$EDITOR ~/.config/fish/config.fish'
@@ -181,10 +207,13 @@ abbr vro '$EDITOR ~/.config/rofi/$THEME.rasi'
 abbr vco '$EDITOR ~/.config/conky/conky.conf'
 abbr val '$EDITOR ~/.config/alacritty/$THEME.yml'
 
+# custom bindings
+bind -M insert \cf accept-autosuggestion
+
 # Startup ascii
 if test "$TERM" = "alacritty"
     fish_vi_key_bindings
-    # colorscript random
+    blocks
 else
     fish_default_key_bindings
 end
