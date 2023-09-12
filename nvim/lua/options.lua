@@ -1,5 +1,4 @@
 local o = vim.opt
-local g = vim.g
 
 vim.cmd[[colorscheme tokyonight]]
 
@@ -19,8 +18,10 @@ o.tabstop = 8
 -- searching
 o.ignorecase = true
 o.smartcase = true
+o.hlsearch = false
 
 -- misc
+o.termguicolors = true
 o.syntax = "on"
 o.mouse = "a"
 o.shell = "/usr/bin/fish"

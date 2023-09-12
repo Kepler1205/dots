@@ -17,15 +17,40 @@ local plugins = {
 	--
 
 	------ IDE stuff ------
+	-- misc
+	{
+		"nvim-telescope/telescope.nvim",
+		branch = '0.1.x',
+		dependencies = {"nvim-lua/plenary.nvim"},
+	},
 	-- LSP stuff
-	"williamboman/mason.nvim",
-	"williamboman/mason-lspconfig.nvim",
-	"neovim/nvim-lspconfig",
+	"folke/neodev.nvim",
+	{
+	  "VonHeikemen/lsp-zero.nvim",
+	  lazy = true,
+	  branch = "v2.x",
+	  dependencies = {
+	    -- LSP Support
+	    {"neovim/nvim-lspconfig"},             -- Required
+	    {"williamboman/mason.nvim"},           -- Optional
+	    {"williamboman/mason-lspconfig.nvim"}, -- Optional
+
+	    -- Autocompletion
+	    {"hrsh7th/nvim-cmp"},     -- Required
+	    {"hrsh7th/cmp-nvim-lsp"}, -- Required
+	    {"L3MON4D3/LuaSnip"},     -- Required
+	  }
+	},
+	-- autocompletion
+	"hrsh7th/cmp-buffer",
+	"hrsh7th/cmp-path",
+	"hrsh7th/cmp-nvim-lua",
+	"windwp/nvim-autopairs",
 	-- syntax highlighting
 	"nvim-treesitter/nvim-treesitter",
 	-- debug
-	{"mfussenegger/nvim-dap", lazy = true};
-	{"rcarriga/nvim-dap-ui", lazy = true};
+	"mfussenegger/nvim-dap",
+	"rcarriga/nvim-dap-ui",
 
 	------ UI stuff ------
 	{
@@ -36,8 +61,11 @@ local plugins = {
 			style = "night",
 			transparent = true,
 		}
-	};
-	{"nvim-lualine/lualine.nvim", enabled = false};
+	},
+	{
+		"nvim-lualine/lualine.nvim",
+		enabled = false,
+	},
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
@@ -46,7 +74,8 @@ local plugins = {
 			vim.o.timeoutlen = 300
 		end,
 		opts = {}
-	};
+	},
+	"ThePrimeagen/vim-be-good",
 };
 
 local options = {};
@@ -54,6 +83,10 @@ local options = {};
 require("lazy").setup(plugins, options)
 
 -- load plugin configs
-require "configs.mason"
-require "configs.treesitter"
+--require "configs.mason"
+--require "configs.treesitter"
+require "configs.telescope"
+require "configs.dap"
+require "configs.lsp"
+require "configs.autopairs"
 -- require "configs.lualine"
