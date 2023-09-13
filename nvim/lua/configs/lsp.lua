@@ -1,6 +1,4 @@
-require("neodev").setup({})
-
-local lsp = require('lsp-zero').preset({
+local lsp = require("lsp-zero").preset({
 	name = "recommended",
 })
 
@@ -11,8 +9,9 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 -- (Optional) Configure lua language server for neovim
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
 
+-- mason
 require("mason").setup()
 
 require("nvim-treesitter.configs").setup {
@@ -20,6 +19,7 @@ require("nvim-treesitter.configs").setup {
 	sync_install = false,
 	auto_install = true,
 	ignore_install = {},
+	modules = {},
 
 	highlight = {
 		enable = true,

@@ -27,7 +27,7 @@ local plugins = {
 	"folke/neodev.nvim",
 	{
 	  "VonHeikemen/lsp-zero.nvim",
-	  lazy = true,
+	  lazy = false,
 	  branch = "v2.x",
 	  dependencies = {
 	    -- LSP Support
@@ -51,6 +51,8 @@ local plugins = {
 	-- debug
 	"mfussenegger/nvim-dap",
 	"rcarriga/nvim-dap-ui",
+	-- lang specific
+	"simrat39/rust-tools.nvim",
 
 	------ UI stuff ------
 	{
@@ -61,10 +63,6 @@ local plugins = {
 			style = "night",
 			transparent = true,
 		}
-	},
-	{
-		"nvim-lualine/lualine.nvim",
-		enabled = false,
 	},
 	{
 		"folke/which-key.nvim",
@@ -83,10 +81,8 @@ local options = {};
 require("lazy").setup(plugins, options)
 
 -- load plugin configs
---require "configs.mason"
---require "configs.treesitter"
 require "configs.telescope"
-require "configs.dap"
 require "configs.lsp"
+require "configs.dap"
 require "configs.autopairs"
--- require "configs.lualine"
+require "configs.langs"
