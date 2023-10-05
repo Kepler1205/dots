@@ -19,8 +19,8 @@ vim.g.maplocalleader = " "
 
 -- normal mode:
 
-vim.keymap.set("n", "J", "ddp")
-vim.keymap.set("n", "K", "ddkP")
+-- vim.keymap.set("n", "J", "ddp")
+-- vim.keymap.set("n", "K", "ddkP")
 
 -- move between split bindings
 vim.keymap.set("n", "<C-left>",  "<C-w>h", opts)

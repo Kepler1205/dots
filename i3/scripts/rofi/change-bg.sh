@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd ~/pictures/wallpapers/
-WALL=$(find -type f \
+WALL=$(find -L -type f \
     | sed 's|^./||' \
     | rofi -dmenu -theme-str \
         '#entry {

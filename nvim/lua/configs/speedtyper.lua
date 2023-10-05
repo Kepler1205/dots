@@ -1,0 +1,3 @@
+require("speedtyper").setup({
+
+})

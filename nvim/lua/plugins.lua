@@ -23,6 +23,7 @@ local plugins = {
 		branch = '0.1.x',
 		dependencies = {"nvim-lua/plenary.nvim"},
 	},
+	"nvim-telescope/telescope-file-browser.nvim",
 	-- LSP stuff
 	"folke/neodev.nvim",
 	{
@@ -46,6 +47,7 @@ local plugins = {
 	"hrsh7th/cmp-path",
 	"hrsh7th/cmp-nvim-lua",
 	"windwp/nvim-autopairs",
+	"numToStr/Comment.nvim",
 	-- syntax highlighting
 	"nvim-treesitter/nvim-treesitter",
 	-- debug
@@ -74,6 +76,10 @@ local plugins = {
 		opts = {}
 	},
 	"ThePrimeagen/vim-be-good",
+	"NStefan002/speedtyper.nvim",
+
+	-- custom plugins (testing)
+	{dir = "/home/kepler/dev/plugins/typer.nvim"},
 };
 
 local options = {};
@@ -86,3 +92,5 @@ require "configs.lsp"
 require "configs.dap"
 require "configs.autopairs"
 require "configs.langs"
+require "configs.comment"
+require "configs.speedtyper"

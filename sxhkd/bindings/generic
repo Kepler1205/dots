@@ -1,3 +1,4 @@
+# vim: ft=sxhkdrc
 # sxhkd generic bindings
 # _  __          _
 #| |/ /___ _ __ | | ___ _ __
@@ -21,8 +22,11 @@ shift + XF86Audio{Raise,Lower}Volume
     playerctl {-p,-i} spotify,ncspot {play-pause,stop,next,previous}
 
 ### POLYBAR BINDINGS ###
-super + {_, shift + }h 
-    polybar-msg cmd {toggle,restart}
+super + h 
+	polybar-msg cmd toggle; i3-msg gaps top all toggle 40
+
+super + shift + h
+	polybar-msg cmd restart
 
 ### FIREFOX BINDINGS ###
 super + {_,alt + , shift + }numbersign
@@ -31,14 +35,8 @@ super + {_,alt + , shift + }numbersign
 ### F KEY BINDINGS ###
 super + F1 
 	thunar
-super + F5 
-	$TERMINAL -e btop
-super + F6 
-	$TERMINAL -e nvim -c Nvdash
-super + F7 
-	$TERMINAL -e ranger
-super + F8 
-	$TERMINAL -e qalc
+super + F5
+	$TERMINAL -e nvim
 super + F11
 	spotify-launcher
 super + F12
@@ -100,6 +98,10 @@ super + {_,alt + } p
 # save a screenshot
 super + Print
     import $HOME/pictures/screenshots/$(date +%s).png
+
+# kill xserver
+control + alt + BackSpace
+    killall Xorg
 
 # poweroff
 control + alt + shift + BackSpace

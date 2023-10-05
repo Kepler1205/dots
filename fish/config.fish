@@ -1,6 +1,9 @@
 if status is-interactive
+    blocks
     # Commands to run in interactive sessions can go here
 end
+
+fish_vi_key_bindings
 
 # disable fish greeting
 set fish_greeting
@@ -167,6 +170,7 @@ abbr --set-cursor e 'echo -e "%"'
 abbr --set-cursor find "fd --hidden '%'"
 abbr --position anywhere !! --function last_history_item
 abbr --set-cursor timer 'sleep %m && notify-send --urgency=critical --wait "Timer Completed..."' 
+abbr --set-cursor async '% & disown'
 
 # Git abbrieviations
 abbr gs 'git status'
@@ -209,11 +213,3 @@ abbr val '$EDITOR ~/.config/alacritty/$THEME.yml'
 
 # custom bindings
 bind -M insert \cf accept-autosuggestion
-
-# Startup ascii
-if test "$TERM" = "alacritty"
-    fish_vi_key_bindings
-    blocks
-else
-    fish_default_key_bindings
-end

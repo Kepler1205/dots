@@ -20,7 +20,11 @@ o.ignorecase = true
 o.smartcase = true
 o.hlsearch = false
 
+-- formatoptions
+o.formatoptions = ""
+
 -- misc
+o.wrap = false
 o.termguicolors = true
 o.syntax = "on"
 o.mouse = "a"

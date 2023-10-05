@@ -17,8 +17,7 @@ require("telescope").setup {
 	defaults = {
 		mappings = {
 			i = {
-				["<CR>"] = select_one_or_multi,
-				-- ["<Tab>"]
+				["<CR>"] = select_one_or_multi
 			}
 		},
 		-- layout_strategy = "bottom_pane",
@@ -29,5 +28,14 @@ require("telescope").setup {
 		border = true,
 		borderchars = {"─", "│", "─", "│", "┌", "┐", "┘", "└"},
 		path_display = {"truncate"}
+	},
+	pickers = {
+		find_files = {hidden = true},
+		man_pages = {sections = {"ALL"}}
+	},
+	extensions = {
+		file_browser = {hijack_netrw = true}
 	}
 }
+
+require("telescope").load_extension "file_browser"

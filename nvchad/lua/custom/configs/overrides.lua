@@ -22,7 +22,7 @@ M.treesitter = {
     -- },
   },
   highlight = {
-    use_languagetree = true,
+    use_languagetree = false,
   },
   incremental_selection = {
     enable = false,

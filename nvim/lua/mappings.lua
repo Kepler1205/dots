@@ -4,6 +4,22 @@ vim.g.maplocalleader = " "
 local opts = {noremap = true, silent = true}
 local keymap = vim.keymap.set
 
+-- enforce hjkl
+--[[ keymap("n", "<Left>", "", opts)
+keymap("n", "<Right>", "", opts)
+keymap("n", "<Up>", "", opts)
+keymap("n", "<Down>", "", opts)
+
+keymap("i", "<Left>", "", opts)
+keymap("i", "<Right>", "", opts)
+keymap("i", "<Up>", "", opts)
+keymap("i", "<Down>", "", opts)
+
+keymap("v", "<Left>", "", opts)
+keymap("v", "<Right>", "", opts)
+keymap("v", "<Up>", "", opts)
+keymap("v", "<Down>", "", opts) ]]
+
 -- ctrl + arrow window navigation
 keymap("n", "<C-left>",  "<C-w>h", opts)
 keymap("n", "<C-right>", "<C-w>l", opts)
@@ -16,8 +32,6 @@ keymap("n", "<leader>sv", "<cmd> vsplit <CR>", opts)
 
 -- new buffer/tab
 keymap("n", "<leader>b", "<cmd> enew <CR>", opts)
-keymap("n", "<leader>e", "<cmd> Explore <CR>", opts)
-keymap("n", "<leader>E", "<cmd> Vexplore <CR>", opts)
 keymap("n", "<leader>t", "<cmd> tabnew <CR>", opts)
 
 -- delete buffer
@@ -55,6 +69,10 @@ keymap("n", "<leader>Y", "\"+Y", opts)
 keymap("t", "<Esc>", "<C-\\><C-n>", opts)
 
 ------------ plugins ------------ 
+-- comment
+keymap("n", "<leader>/", "<cmd> norm gcc <CR>", opts)
+keymap("v", "<leader>/", "<cmd> norm gb <CR>", opts)
+
 -- telescope
 keymap("n", "<leader>T", "<cmd> Telescope <CR>", opts)
 keymap("n", "<leader>f", "<cmd> Telescope find_files <CR>", opts)
@@ -62,6 +80,7 @@ keymap("n", "<leader>b", "<cmd> Telescope buffers <CR>", opts)
 keymap("n", "<leader>m", "<cmd> Telescope man_pages <CR>", opts)
 keymap("n", "<leader>h", "<cmd> Telescope help_tags <CR>", opts)
 keymap("n", "<leader>j", "<cmd> Telescope jumplist <CR>", opts)
+keymap("n", "<leader>e", "<cmd> Telescope file_browser <CR>", opts)
 
 -- LSP
 keymap("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -69,6 +88,7 @@ keymap("n", "gD", function() vim.lsp.buf.delcaration() end, opts)
 keymap("n", "gr", function() vim.lsp.buf.references() end, opts)
 keymap("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
 keymap("v", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
+-- keymap("i", "<S-<CR>>", function() require("cmp").mapping.confirm({select = true}) end, opts)
 
 -- DAP
 keymap("n", "<leader>dd", function() require("dapui").toggle() end, opts)
