@@ -75,6 +75,7 @@ local plugins = {
 		end,
 		opts = {}
 	},
+	"lukas-reineke/indent-blankline.nvim",
 	"ThePrimeagen/vim-be-good",
 	"NStefan002/speedtyper.nvim",
 
@@ -94,3 +95,4 @@ require "configs.autopairs"
 require "configs.langs"
 require "configs.comment"
 require "configs.speedtyper"
+require "configs.indent-blankline"
