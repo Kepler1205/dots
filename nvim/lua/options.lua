@@ -8,8 +8,8 @@ o.relativenumber = true
 
 -- tabs
 o.expandtab = false
-o.shiftwidth = 8
-o.tabstop = 8
+o.shiftwidth = 4
+o.tabstop = 4
 
 -- bg highlights
 -- o.cursorline = true
