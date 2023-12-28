@@ -1,0 +1,89 @@
+[colors.bright]
+black = "#808080"
+blue = "#8080ff"
+cyan = "#80ffff"
+green = "#80ff80"
+magenta = "#ff80ff"
+red = "#ff8080"
+white = "#ffffff"
+yellow = "#ffff80"
+
+[colors.cursor]
+cursor = "CellForeground"
+text = "CellBackground"
+
+[colors.footer_bar]
+background = "#282a36"
+foreground = "#f8f8f2"
+
+[colors.hints.end]
+background = "#282a36"
+foreground = "#f1fa8c"
+
+[colors.hints.start]
+background = "#f1fa8c"
+foreground = "#282a36"
+
+[colors.line_indicator]
+background = "None"
+foreground = "None"
+
+[colors.normal]
+black = "#000000"
+blue = "#0000ff"
+cyan = "#00ffff"
+green = "#00ff00"
+magenta = "#ff00ff"
+red = "#ff0000"
+white = "#ffffff"
+yellow = "#ffff00"
+
+[colors.primary]
+background = "#000000"
+bright_foreground = "#ffffff"
+foreground = "#ffffff"
+
+[colors.search.focused_match]
+background = "#ffb86c"
+foreground = "#44475a"
+
+[colors.search.matches]
+background = "#50fa7b"
+foreground = "#44475a"
+
+[colors.selection]
+background = "#44475a"
+text = "CellForeground"
+
+[colors.vi_mode_cursor]
+cursor = "CellForeground"
+text = "CellBackground"
+
+[cursor.style]
+shape = "Block"
+
+[font]
+size = 12
+
+[font.normal]
+family = "Terminess Nerd Font"
+
+[font.offset]
+x = 0
+y = 0
+
+[[keyboard.bindings]]
+chars = "\u0017"
+key = "Back"
+mods = "Control"
+
+[shell]
+program = "/bin/fish"
+
+[window]
+dynamic_padding = true
+opacity = 1
+
+[window.padding]
+x = 10
+y = 10
