@@ -5,10 +5,31 @@ require("neodev").setup({
 
 -- dap
 local dap = require("dap")
-dap.adapters.cpp = {
-	type = "executable",
-	command = "g++"
+
+dap.adapters.codelldb = {
+	type = "server",
+	port = "${port}",
+	executable = {
+		command = os.getenv("HOME") .. "/.local/share/nvim/mason/bin/codelldb",
+		args = {"--port","${port}"}
+	}
 }
+
+dap.configurations.c = {
+	{
+		type = "codelldb",
+		request = "launch",
+		name = "Launch",
+		program = function ()
+			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+		end,
+		cwd = "${workspaceFolder}",
+		stopOnEntry = false
+	}
+}
+
+-- rust is using rust-tools, config is in langs.lua
+dap.configurations.cpp = dap.configurations.c
 
 -- nv-dap-ui
 local dapui = require("dapui")
