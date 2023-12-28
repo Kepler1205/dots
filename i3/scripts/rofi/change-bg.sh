@@ -1,11 +1,13 @@
 #!/bin/bash
 
-cd ~/pictures/wallpapers/
-WALL=$(find -L -type f \
-    | sed 's|^./||' \
+WALL_DIR=~/pictures/wallpapers/
+cd $WALL_DIR
+WALL=$(basename -a $(find -L -type f) \
+	| sort \
     | rofi -dmenu -theme-str \
         '#entry {
             placeholder: "Change Background";
         }'
     )
-[[ -n $WALL ]] && feh --bg-fill ~/pictures/wallpapers/$WALL
+WALL_PATH=$(find -L -type f | grep $WALL)
+[[ -n $WALL ]] && feh --bg-fill $WALL_DIR$WALL_PATH
