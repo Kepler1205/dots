@@ -167,7 +167,6 @@ abbr feh 'feh -.'
 abbr sudo 'doas --'
 abbr doas 'doas --'
 abbr --set-cursor e 'echo -e "%"'
-abbr --set-cursor find "fd --hidden '%'"
 abbr --position anywhere !! --function last_history_item
 abbr --set-cursor timer 'sleep %m && notify-send --urgency=critical --wait "Timer Completed..."' 
 abbr --set-cursor async '% & disown'
