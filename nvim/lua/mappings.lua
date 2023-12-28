@@ -26,6 +26,17 @@ keymap("n", "<C-right>", "<C-w>l", opts)
 keymap("n", "<C-up>", 	 "<C-w>k", opts)
 keymap("n", "<C-down>",  "<C-w>j", opts)
 
+-- disable <S-up/down> to pageup/down in all modes
+keymap("n", "<S-up>",   "", opts)
+keymap("n", "<S-down>", "", opts)
+keymap("i", "<S-up>",   "", opts)
+keymap("i", "<S-down>", "", opts)
+keymap("v", "<S-up>",   "", opts)
+keymap("v", "<S-down>", "", opts)
+
+-- reselect pasted text
+keymap("n", "<leader>v", "`[v`]", opts)
+
 -- splits
 keymap("n", "<leader>sh", "<cmd> split <CR>", opts)
 keymap("n", "<leader>sv", "<cmd> vsplit <CR>", opts)
@@ -47,9 +58,6 @@ keymap("n", "<S-<CR>>", "<cmd> bprevious <CR>", opts)
 
 -- load all plugins
 keymap("n", "<leader>la", "<cmd> Lazy load all <CR>", opts)
-
--- reload init.lua
-keymap("n", "<leader>=", "<cmd> source <CR>", opts)
 
 -- move lines
 keymap("v", "J", ":m'>+1<CR>gv=gv", opts)
@@ -91,6 +99,11 @@ keymap("v", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
 -- keymap("i", "<S-<CR>>", function() require("cmp").mapping.confirm({select = true}) end, opts)
 
 -- DAP
-keymap("n", "<leader>dd", function() require("dapui").toggle() end, opts)
+keymap("n", "<F5>", function() require("dap").continue() end, opts)
+keymap("n", "<F10>", function() require("dap").step_over() end, opts)
+keymap("n", "<F11>", function() require("dap").step_into() end, opts)
+keymap("n", "<F12>", function() require("dap").step_out() end, opts)
+keymap("n", "<leader>dt", function() require("dapui").toggle() end, opts)
 keymap("n", "<leader>db", function() require("dap").toggle_breakpoint() end, opts)
 keymap("n", "<leader>dc", function() require("dap").clear_breakpoints() end, opts)
+keymap("n", "<leader>dx", function() require("dap").terminate() end, opts)
