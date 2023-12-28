@@ -3,10 +3,10 @@
 [[ -f "$XDG_CONFIG_HOME"/X11/xresources ]] && xrdb -merge -I$HOME "$XDG_CONFIG_HOME"/X11/xresources &
 
 # set numlock on by defualt
-numlockx on &
+numlockx on
 
 # bind capslock to escape
-setxkbmap -option caps:escape &
+setxkbmap -layout "gb,gb" -variant ",colemak" -option grp:sclk_toggle -option caps:escape
 
 # use sxhkd for key bindings
 # configs in ~/.config/sxhkd/bindings/
