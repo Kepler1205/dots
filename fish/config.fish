@@ -174,8 +174,9 @@ abbr --set-cursor async '% & disown'
 # Git abbrieviations
 abbr gs 'git status'
 abbr ga 'git add'
-abbr gp 'git push origin main'
+abbr gp 'git push'
 abbr gd 'git diff'
+abbr gco 'git checkout'
 abbr --set-cursor gc 'git commit -m "%"'
 
 # Program modifiers
