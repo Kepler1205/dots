@@ -98,6 +98,10 @@ keymap("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
 keymap("v", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
 -- keymap("i", "<S-<CR>>", function() require("cmp").mapping.confirm({select = true}) end, opts)
 
+-- Luasnip
+keymap("i", "<C-Tab>", function() require("luasnip").jump(1) end, opts)
+keymap("i", "<C-S-Tab>", function() require("luasnip").jump(-1) end, opts)
+
 -- DAP
 keymap("n", "<F5>", function() require("dap").continue() end, opts)
 keymap("n", "<F10>", function() require("dap").step_over() end, opts)
