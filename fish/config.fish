@@ -136,11 +136,11 @@ end
 
 # Aliases
 alias c    'clear'
-alias la   'exa --icons -s type -a'
-alias ll   'exa --icons -s type -la --no-time --no-filesize'
-alias lll  'exa --icons -s type -lahgmU --classify'
-alias llll 'exa --icons -s type -laahHiUumg@ --changed --classify'
-alias tree 'exa --icons --header -T'
+alias la   'eza --icons -s type -a'
+alias ll   'eza --icons -s type -la --no-time --no-filesize'
+alias lll  'eza --icons -s type -lahgmU --classify'
+alias llll 'eza --icons -s type -laahHiUumg@ --changed --classify'
+alias tree 'eza --icons --header -T'
 
 # xdg enforcer aliases
 alias wget 'wget --hsts-file="$XDG_DATA_HOME"/wget-hsts'
@@ -185,31 +185,6 @@ abbr --set-cursor --position anywhere grep "grep -i '%'"
 
 # Directory Movement
 abbr --add dotdot --regex '^\.\.+$' --function multicd
-
-# File Location Abbrieviations
-abbr --position anywhere cfi3 '~/.config/i3/scripts'
-abbr --position anywhere cffi '~/.config/fish'
-abbr --position anywhere cfpo '~/.config/polybar'
-abbr --position anywhere cfpi '~/.config/picom'
-abbr --position anywhere cfdu '~/.config/dunst'
-abbr --position anywhere cfro '~/.config/rofi'
-abbr --position anywhere cfco '~/.config/conky'
-abbr --position anywhere cfal '~/.config/alacritty'
-abbr --position anywhere romdir '/mnt/hdd/ROMs/'
-abbr --position anywhere hdd '/mnt/hdd/'
-
-# Vim Abbrieviations
-abbr vi3 '$EDITOR ~/.config/i3/config ~/.config/i3/themes/$THEME.conf ~/.config/i3/keybinds.conf' 
-abbr vhy '$EDITOR ~/.config/hypr/hyprland.conf' '$EDITOR ~/.config/hypr/keybinds.conf'
-abbr vsx '$EDITOR ~/.config/sxhkd/bindings/*'
-abbr vnv 'pushd   ~/.config/nvim; $EDITOR lua/custom/chadrc.lua; popd'
-abbr vpo '$EDITOR ~/.config/polybar/themes/$THEME/*.ini'
-abbr vpi '$EDITOR ~/.config/picom/picom.conf'
-abbr vfi '$EDITOR ~/.config/fish/config.fish'
-abbr vdu '$EDITOR ~/.config/dunst/dunstrc'
-abbr vro '$EDITOR ~/.config/rofi/$THEME.rasi'
-abbr vco '$EDITOR ~/.config/conky/conky.conf'
-abbr val '$EDITOR ~/.config/alacritty/$THEME.yml'
 
 # custom bindings
 bind -M insert \cf accept-autosuggestion
