@@ -32,7 +32,7 @@ i3-msg restart
 echo "Loaded i3 $1."
 
 # alacritty
-ln -sf ~/.config/alacritty/$1.yml ~/.config/alacritty/alacritty.yml
+ln -sf ~/.config/alacritty/$1.toml ~/.config/alacritty/alacritty.toml
 echo "Loaded alacritty $1."
 
 # rofi
