@@ -40,9 +40,12 @@ function fish_prompt
     set_color normal
 end
 
+function cd
+	builtin cd $argv ; ls -a
+end
+
 function multicd
     echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)
-    echo ls
 end
 
 function last_history_item
