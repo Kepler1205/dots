@@ -48,6 +48,10 @@ local plugins = {
 	"hrsh7th/cmp-nvim-lua",
 	"windwp/nvim-autopairs",
 	"numToStr/Comment.nvim",
+	{
+		"L3MON4D3/LuaSnip",
+		event = "VeryLazy",
+	},
 	-- syntax highlighting
 	"nvim-treesitter/nvim-treesitter",
 	-- debug
@@ -96,3 +100,4 @@ require "configs.langs"
 require "configs.comment"
 require "configs.speedtyper"
 require "configs.indent-blankline"
+require "configs.snippets"
