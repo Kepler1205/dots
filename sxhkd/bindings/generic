@@ -59,6 +59,10 @@ super + grave
 super + Tab
 	rofi -show run
 
+# ani-cli in rofi
+super + apostrophe
+	ANI_CLI_SKIP_INTRO=1 ani-cli --rofi
+
 # rofi change theme script
 super + t
 	$HOME/scripts/rofi/change-theme.sh
