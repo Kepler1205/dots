@@ -70,17 +70,14 @@ function o
             firefox --new-window $file
         else if echo $filetype | grep 'PDF document' >/dev/null
             zathura $file
-            continue
         else if echo $filetype | grep 'ASCII text' >/dev/null
             bat $file
-            continue
         else if echo $filetype | grep -E 'PNG|JPEG|JPG|SVG' >/dev/null
             feh -. $file
-            continue
         else if echo $filetype | grep -E 'MPEG|MP4|MP3' >/dev/null
-            continue
+			mpv $file
         else
-            echo $filetype
+			bat $file
         end
     end
 end
