@@ -53,22 +53,75 @@ set fish_greeting
 
 # Functions
 
+# use custom vi mode indicator
+function fish_mode_prompt; end
+
+function fish_right_prompt
+	switch $fish_bind_mode
+		case insert
+		case replace_one
+		case default
+			set_color red
+			printf "-- NORMAL --"
+		case visual
+			set_color brmagenta
+			printf "-- VISUAL --"
+		case replace
+			set_color yellow
+			printf "-- REPLACE --"
+		case '*'
+			set_color red
+			# printf "?"
+			printf "$fish_bind_mode"
+	end
+
+	if test $status -ne 0
+		set_color red
+		printf $status
+	end
+	set_color normal
+end
+
 function fish_prompt
+
+    set -l cmd_status $status
+    if test $cmd_status -ne 0
+        set_color -b black
+    end
+
+
     set_color green
-    printf "$USER "
+	printf "%s " (whoami)
     set_color purple
-    printf "$hostname "
-    set_color white
-    printf "$(date "+%T")\n"
-    
+    printf "%s " (prompt_hostname)
+
+
+	if git rev-parse --is-inside-work-tree &> /dev/null 
+		set_color --bold red
+		printf (git rev-parse --abbrev-ref HEAD)
+		set_color brgreen
+		printf '['
+		set_color yellow
+		printf (git rev-parse HEAD | string sub -l 5)
+		set_color brgreen
+		printf ']'
+	end
+
+	echo
+
+	if test $cmd_status -ne 0
+		set_color -b normal
+	end
+
     set_color blue
-    if test "$(pwd | wc --chars)" -gt 50
-      printf "$(prompt_pwd)"
+    if test (pwd | string length) -gt 50
+      printf (prompt_pwd)
     else 
-      printf "$(pwd | sed "s/^\/home\/$USER/~/")"
+      # printf (pwd | sed "s|$HOME|~|")
+	  printf (pwd | string replace $HOME '~')
     end
     
-    if test "$USER" = "root"
+    if fish_is_root_user
       set_color red
       printf " # "
     else
