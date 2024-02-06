@@ -1,5 +1,5 @@
 if status is-interactive
-    blocks
+	fastfetch
 
 	fish_vi_key_bindings
 	# Vi mode changes
@@ -187,7 +187,7 @@ end
 #### Abbrieviations and aliases ####
 
 # Aliases
-alias c    'clear'
+alias c    'clear -x'
 alias la   'eza --icons -s type -a'
 alias ll   'eza --icons -s type -la --no-time --no-filesize'
 alias lll  'eza --icons -s type -lahgmU --classify'
@@ -207,6 +207,7 @@ abbr cp 'cp -iv'
 abbr mv 'mv -iv'
 abbr df 'df -h'
 abbr nf 'neofetch'
+abbr ff 'fastfetch'
 abbr cm 'unimatrix -s 96'
 abbr du 'du -sh'
 abbr ln 'ln -s'
@@ -218,6 +219,7 @@ abbr ntv 'new_term $EDITOR'
 abbr feh 'feh -.'
 abbr sudo 'doas --'
 abbr doas 'doas --'
+abbr clear 'clear -x'
 abbr --set-cursor e 'echo -e "%"'
 abbr --position anywhere !! --function last_history_item
 abbr --set-cursor timer 'sleep %m && notify-send --urgency=critical --wait "Timer Completed..."' 
