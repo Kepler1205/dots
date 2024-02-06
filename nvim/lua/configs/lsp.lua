@@ -1,5 +1,32 @@
+
+-- lsp-zero
 local lsp = require("lsp-zero").preset({})
 require("lsp-zero").extend_cmp()
+
+-- mason
+require("mason").setup()
+require("mason-lspconfig").setup({
+	handlers = {
+		lsp.default_setup,
+	}
+})
+
+lsp.on_attach(function(client, bufnr)
+	-- see :help lsp-zero-keybindings
+	-- to learn the available actions
+	lsp.default_keymaps({buffer = bufnr})
+end)
+
+local lspconfig = require("lspconfig")
+
+-- (Optional) Configure lua language server for neovim
+lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
+lspconfig.clangd.setup{}
+lspconfig.bashls.setup{}
+
+-- using rust-tools to setup rust
+lsp.skip_server_setup({"rust_analyzer"})
+
 
 -- completion
 local cmp = require("cmp")
@@ -41,21 +68,6 @@ cmp.setup.cmdline(':', {
 		{ name = "cmdline" },
 	}),
 }) ]]
-
-lsp.on_attach(function(client, bufnr)
-	-- see :help lsp-zero-keybindings
-	-- to learn the available actions
-	lsp.default_keymaps({buffer = bufnr})
-end)
-
--- (Optional) Configure lua language server for neovim
-require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
-require("lspconfig").clangd.setup{}
-require("lspconfig").rust_analyzer.setup{}
-require("lspconfig").bashls.setup{}
-
--- mason
-require("mason").setup()
 
 require("nvim-treesitter.configs").setup {
 	ensure_installed = {"c", "cpp", "rust", "bash", "fish", "python"},
