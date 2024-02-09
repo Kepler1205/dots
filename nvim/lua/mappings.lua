@@ -37,6 +37,14 @@ keymap("v", "<S-down>", "", opts)
 -- reselect pasted text
 keymap("n", "<leader>v", "`[v`]", opts)
 
+-- delete paren/bracket/brace pair
+keymap("n", "dA(",  "di(va(p",   opts)
+keymap("n", "dA{",  "di{va{p",   opts)
+keymap("n", "dA[",  "di[va[p",   opts)
+keymap("n", "dA<",  "di<va<p",   opts)
+keymap("n", "dA\"", "di\"va\"p", opts)
+keymap("n", "dA'",  "di'va'p",   opts)
+
 -- splits
 keymap("n", "<leader>sh", "<cmd> split <CR>", opts)
 keymap("n", "<leader>sv", "<cmd> vsplit <CR>", opts)
