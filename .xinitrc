@@ -5,12 +5,12 @@
 # set numlock on by defualt
 numlockx on
 
-# bind capslock to escape
-setxkbmap -layout "gb,gb" -variant ",colemak" -option grp:sclk_toggle -option caps:escape
-
 # use sxhkd for key bindings
 # configs in ~/.config/sxhkd/bindings/
 # $XDG_CONFIG_HOME/sxhkd/refresh.sh &
+
+# togle between normal layout and custom variant
+setxkbmap -layout "gb,gb" -variant "center_symbol," -option grp:sclk_toggle -option caps:escape
 
 # apply monitor layout
 $HOME/.set-monitors &
