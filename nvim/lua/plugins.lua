@@ -55,8 +55,8 @@ local plugins = {
 	-- syntax highlighting
 	"nvim-treesitter/nvim-treesitter",
 	-- debug
-	"mfussenegger/nvim-dap",
-	"rcarriga/nvim-dap-ui",
+	--"mfussenegger/nvim-dap",
+	--"rcarriga/nvim-dap-ui",
 	-- lang specific
 	"simrat39/rust-tools.nvim",
 
@@ -94,7 +94,7 @@ require("lazy").setup(plugins, options)
 -- load plugin configs
 require "configs.telescope"
 require "configs.lsp"
-require "configs.dap"
+--require "configs.dap"
 require "configs.autopairs"
 require "configs.langs"
 require "configs.comment"

@@ -1,7 +1,8 @@
 -- neodev
-require("neodev").setup({
+--[[ require("neodev").setup({
 	libaray = {plugins = { "nvim-dap-ui" }, types = true},
 })
+--]]
 
 -- dap
 local dap = require("dap")
