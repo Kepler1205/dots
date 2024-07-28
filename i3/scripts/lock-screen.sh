@@ -4,6 +4,9 @@
 # blurred background image
 #
 
+i3lock -ef --color 000000
+exit
+
 lsc_path="/tmp/lockscreen.png"
 
 # screenshot

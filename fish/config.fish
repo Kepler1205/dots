@@ -95,18 +95,19 @@ function fish_prompt
     set_color purple
     printf "%s " (prompt_hostname)
 
-
-	if git rev-parse --is-inside-work-tree &> /dev/null 
-		set_color --bold red
-		printf (git rev-parse --abbrev-ref HEAD)
-		set_color brgreen
-		printf '['
-		set_color yellow
-		printf (git rev-parse HEAD | string sub -l 5)
-		set_color brgreen
-		printf ']'
-	end
-
+	#
+	# if git rev-parse --is-inside-work-tree &> /dev/null 
+	# 	set_color --bold red
+	# 	printf (git rev-parse --abbrev-ref HEAD)
+	# 	set_color brgreen
+	# 	printf '['
+	# 	set_color yellow
+	# 	# local hash = git rev-parse HEAD 2> /dev/null | string sub -l 5 
+	# 	printf (git rev-parse HEAD 2> /dev/null | string sub -l 5)
+	# 	set_color brgreen
+	# 	printf ']'
+	# end
+	#
 	echo
 
 	if test $cmd_status -ne 0
@@ -228,9 +229,8 @@ abbr --set-cursor async '% & disown'
 # Git abbrieviations
 abbr gs 'git status'
 abbr ga 'git add'
-abbr gp 'git push'
 abbr gd 'git diff'
-abbr gco 'git checkout'
+alias gll "git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue) <%an> %Creset' --abbrev-commit"
 abbr --set-cursor gc 'git commit -m "%"'
 
 # Program modifiers
