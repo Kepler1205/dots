@@ -23,6 +23,7 @@ local lspconfig = require("lspconfig")
 lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
 lspconfig.clangd.setup{}
 lspconfig.bashls.setup{}
+lspconfig.texlab.setup{}
 
 -- using rust-tools to setup rust
 lsp.skip_server_setup({"rust_analyzer"})
