@@ -1,0 +1,39 @@
+#!/usr/bin/env sh
+
+# river configuration
+
+# monitor layout
+riverctl spawn kanshi
+
+# keyboard layout
+riverctl keyboard-layout -options "caps:escape" gb
+# keyboard="keyboard-13364-593-Keychron_Keychron_K5_Pro_Keyboard"
+
+# wm mappings
+#            mode   modifier		binding			action
+riverctl map normal Control+Alt 	Backspace 		exit
+riverctl map normal Super 			Q				close
+riverctl map normal Super 			F				toggle-fullscreen
+riverctl map normal Super+Shift 	Space			toggle-float
+riverctl map normal Super 			Left			focus-view left
+riverctl map normal Super 			Right			focus-view right
+riverctl map normal Super 			Up				focus-view up
+riverctl map normal Super 			Down			focus-view down
+
+# program mappings
+riverctl map normal Super+Shift 	R		 		spawn "${XDG_CONFIG_HOME}/river/init"
+riverctl map normal Super			Return			spawn "$TERMINAL"
+riverctl map normal Super			Numbersign		spawn "$BROWSER"
+
+# behaviour
+riverctl set-cursor-warp on-focus-change
+
+# visuals
+
+
+# layout
+riverctl default-layout rivertile
+riverctl spawn "rivertile -view-padding 4 -main-location top"
+
+# programs
+riverctl spawn "swww init"
