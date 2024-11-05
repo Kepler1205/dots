@@ -52,6 +52,15 @@ local plugins = {
 		"L3MON4D3/LuaSnip",
 		event = "VeryLazy",
 	},
+	{
+		"kylechui/nvim-surround",
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup({
+				-- Configuration here, or leave empty to use defaults
+			})
+		end
+	},
 	-- syntax highlighting
 	"nvim-treesitter/nvim-treesitter",
 	-- debug
@@ -59,6 +68,15 @@ local plugins = {
 	--"rcarriga/nvim-dap-ui",
 	-- lang specific
 	"simrat39/rust-tools.nvim",
+	{
+		"lervag/vimtex",
+		lazy = false,     -- we don't want to lazy load VimTeX
+		-- tag = "v2.15", -- uncomment to pin to a specific release
+		init = function()
+			-- VimTeX configuration goes here, e.g.
+			vim.g.vimtex_view_method = "zathura"
+		end
+	},
 
 	------ UI stuff ------
 	{
@@ -82,9 +100,6 @@ local plugins = {
 	"lukas-reineke/indent-blankline.nvim",
 	"ThePrimeagen/vim-be-good",
 	"NStefan002/speedtyper.nvim",
-
-	-- custom plugins (testing)
-	{dir = "/home/kepler/dev/plugins/typer.nvim"},
 };
 
 local options = {};

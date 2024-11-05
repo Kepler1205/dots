@@ -78,7 +78,7 @@ chars = "\u0017"
 key = "Back"
 mods = "Control"
 
-[shell]
+[terminal.shell]
 program = "/usr/bin/fish"
 
 [window]
