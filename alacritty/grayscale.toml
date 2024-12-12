@@ -64,7 +64,7 @@ blinking = "On"
 shape = "Beam"
 
 [font]
-size = 14
+size = 13
 
 [font.normal]
 family = "Terminess Nerd Font"
