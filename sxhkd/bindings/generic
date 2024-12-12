@@ -19,7 +19,7 @@ shift + XF86Audio{Raise,Lower}Volume
 	playerctl -p spotify,ncspot volume 0.05{+,-} 
 # uses alt for browsers
 {_, alt + }XF86Audio{Play,Stop,Next,Prev}
-    playerctl {-p,-i} spotify,ncspot {play-pause,stop,next,previous}
+    playerctl {-p,-i} mpv,spotify,ncspot {play-pause,stop,next,previous}
 
 ### POLYBAR BINDINGS ###
 super + h 
